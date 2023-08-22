@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 05:35:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/08/23 06:46:13 by juwkim           ###   ########.fr       */
+/*   Created: 2023/08/23 06:17:27 by juwkim            #+#    #+#             */
+/*   Updated: 2023/08/23 06:40:15 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int	main(int argc, char *argv[])
+Weapon::Weapon(std::string type) :
+	mType(type)
 {
-	if (argc != 3) {
-		std::cout << "Usage: N name" << '\n';
-		return (EXIT_SUCCESS);
-	}
-	const int N = std::atoi(argv[1]);
-	Zombie *horde = zombieHorde(N, std::string(argv[2]));
-	for (int i = 0; i < N; ++i)
-		horde[i].announce();
-	delete[] horde;
-	return (EXIT_SUCCESS);
+}
+
+Weapon::~Weapon(void) { }
+
+const std::string&	Weapon::getType(void) const
+{
+	return (mType);
+}
+
+void	Weapon::setType(std::string type)
+{
+	mType = type;
 }

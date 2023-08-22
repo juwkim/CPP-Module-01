@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 05:35:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/08/23 06:46:13 by juwkim           ###   ########.fr       */
+/*   Created: 2023/08/23 06:30:41 by juwkim            #+#    #+#             */
+/*   Updated: 2023/08/23 06:40:45 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+#include <iostream>
+#include <string.h>
+#include "Weapon.hpp"
 
-int	main(int argc, char *argv[])
+class HumanB
 {
-	if (argc != 3) {
-		std::cout << "Usage: N name" << '\n';
-		return (EXIT_SUCCESS);
-	}
-	const int N = std::atoi(argv[1]);
-	Zombie *horde = zombieHorde(N, std::string(argv[2]));
-	for (int i = 0; i < N; ++i)
-		horde[i].announce();
-	delete[] horde;
-	return (EXIT_SUCCESS);
-}
+	public:
+		HumanB(std::string name);
+		~HumanB(void);
+		void	attack(void) const;
+		void	setWeapon(Weapon &weapon);
+	private:
+		std::string	mName;
+		Weapon		*mWeapon;
+};

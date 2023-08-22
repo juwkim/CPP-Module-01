@@ -5,23 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 05:35:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/08/23 06:46:13 by juwkim           ###   ########.fr       */
+/*   Created: 2023/08/23 05:59:00 by juwkim            #+#    #+#             */
+/*   Updated: 2023/08/23 06:13:36 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
-	if (argc != 3) {
-		std::cout << "Usage: N name" << '\n';
-		return (EXIT_SUCCESS);
-	}
-	const int N = std::atoi(argv[1]);
-	Zombie *horde = zombieHorde(N, std::string(argv[2]));
-	for (int i = 0; i < N; ++i)
-		horde[i].announce();
-	delete[] horde;
+	std::string	string = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &string;
+	std::string	&stringREF = string;
+
+	std::cout << "address of the string: " << &string << '\n';
+	std::cout << "address held by stringPTR: " << stringPTR << '\n';
+	std::cout << "address held by stringEFR: " << &stringREF << '\n';
+	std::cout << '\n';
+	std::cout << "value of the string: " << string << '\n';
+	std::cout << "value pointed to by stringPTR: " << *stringPTR << '\n';
+	std::cout << "value pointed to by stringREF: " << stringREF << '\n';
+	
 	return (EXIT_SUCCESS);
 }

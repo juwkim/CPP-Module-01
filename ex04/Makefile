@@ -6,7 +6,7 @@
 #    By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/23 01:13:48 by juwkim            #+#    #+#              #
-#    Updated: 2023/08/23 05:12:38 by juwkim           ###   ########.fr        #
+#    Updated: 2023/08/23 07:25:15 by juwkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp | dir_guard
 
 clean:
 	@ $(RM) -r $(BUILD_DIR)
+	@ $(RM) $(wildcard *.replace)
 	@ printf "$(BLUE)[$(NAME)] obj. dep. files$(WHITE)$(GREEN)	=> Cleaned!\n$(WHITE)"
 
 fclean: clean

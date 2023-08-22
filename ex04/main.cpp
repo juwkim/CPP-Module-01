@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwkim <juwkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 05:35:02 by juwkim            #+#    #+#             */
-/*   Updated: 2023/08/23 06:46:13 by juwkim           ###   ########.fr       */
+/*   Created: 2023/08/23 06:41:39 by juwkim            #+#    #+#             */
+/*   Updated: 2023/08/23 07:13:48 by juwkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include "FileReplacer.hpp"
 
 int	main(int argc, char *argv[])
 {
-	if (argc != 3) {
-		std::cout << "Usage: N name" << '\n';
+	if (argc != 4) {
+		std::cout << "Usage: filename s1 s2" << '\n';
 		return (EXIT_SUCCESS);
 	}
-	const int N = std::atoi(argv[1]);
-	Zombie *horde = zombieHorde(N, std::string(argv[2]));
-	for (int i = 0; i < N; ++i)
-		horde[i].announce();
-	delete[] horde;
+	if (FileReplacer().replace(argv[1], argv[2], argv[3]) == false)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
