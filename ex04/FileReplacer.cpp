@@ -27,11 +27,12 @@ bool FileReplacer::replace(const char *file, const std::string &s1, const std::s
 	}
 
 	std::string				line;
-	std::string::size_type	pos = 0;
+	std::string::size_type	pos;
 	std::string::size_type	cur;
 
 	while (in.eof() == false)
 	{
+		pos = 0;
 		std::getline(in, line);
 		while ((cur = line.find(s1, pos)) != std::string::npos)
 		{
